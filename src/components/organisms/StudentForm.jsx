@@ -74,11 +74,11 @@ const validateForm = () => {
       newErrors.parentGuardianName = "Parent/Guardian name is required";
     }
 
-    if (!formData.contactNumber.trim()) {
+if (!formData.contactNumber.trim()) {
       newErrors.contactNumber = "Contact number is required";
     }
 
-    if (formData.emailAddress && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailAddress)) {
+    if (formData.emailAddress && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailAddress.trim())) {
       newErrors.emailAddress = "Please enter a valid email address";
     }
 
