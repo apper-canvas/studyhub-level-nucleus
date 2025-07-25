@@ -215,13 +215,21 @@ const Dashboard = () => {
                 <ApperIcon name="FileText" className="h-4 w-4 mr-3" />
                 Create Assignment
               </Button>
-              <Button 
+<Button 
                 onClick={() => navigate("/grades")}
                 variant="outline" 
                 className="w-full justify-start"
               >
                 <ApperIcon name="BarChart3" className="h-4 w-4 mr-3" />
                 View Grades
+              </Button>
+              <Button 
+                onClick={() => navigate("/grade-prediction")}
+                variant="outline" 
+                className="w-full justify-start"
+              >
+                <ApperIcon name="TrendingUp" className="h-4 w-4 mr-3" />
+                Grade Predictor
               </Button>
               <Button 
                 onClick={() => navigate("/calendar")}
