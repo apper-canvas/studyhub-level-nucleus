@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
 import { cn } from "@/utils/cn";
+import { AuthContext } from "../../App";
+
+const LogoutButton = () => {
+  const { logout } = useContext(AuthContext);
+
+  return (
+    <Button
+      onClick={logout}
+      variant="ghost"
+      size="sm"
+      className="text-gray-600 hover:text-gray-900 p-1"
+      title="Logout"
+    >
+      <ApperIcon name="LogOut" className="h-4 w-4" />
+    </Button>
+  );
+};
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
@@ -67,16 +85,19 @@ const Sidebar = ({ isOpen, onClose }) => {
               ))}
             </nav>
 
-            <div className="flex-shrink-0 px-4 mt-8">
+<div className="flex-shrink-0 px-4 mt-8">
               <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                    <ApperIcon name="User" className="h-4 w-4 text-white" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
+                      <ApperIcon name="User" className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">Student Dashboard</p>
+                      <p className="text-xs text-gray-600">Manage your academic life</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">Student Dashboard</p>
-                    <p className="text-xs text-gray-600">Manage your academic life</p>
-                  </div>
+                  <LogoutButton />
                 </div>
               </div>
             </div>

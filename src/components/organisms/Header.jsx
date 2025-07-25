@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
+import { AuthContext } from "../../App";
+
+const LogoutButton = () => {
+  const { logout } = useContext(AuthContext);
+
+  return (
+    <Button
+      onClick={logout}
+      variant="outline"
+      size="sm"
+      className="flex items-center space-x-2"
+    >
+      <ApperIcon name="LogOut" className="h-4 w-4" />
+      <span className="hidden sm:inline">Logout</span>
+    </Button>
+  );
+};
 
 const Header = ({ onMenuClick, title = "Dashboard" }) => {
   return (
@@ -24,7 +41,7 @@ const Header = ({ onMenuClick, title = "Dashboard" }) => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
+<div className="flex items-center space-x-4">
           <div className="hidden md:flex items-center space-x-3 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl px-4 py-2">
             <ApperIcon name="Calendar" className="h-4 w-4 text-primary-600" />
             <span className="text-sm font-medium text-gray-700">
@@ -40,6 +57,8 @@ const Header = ({ onMenuClick, title = "Dashboard" }) => {
             <ApperIcon name="Plus" className="h-4 w-4 mr-2" />
             Quick Add
           </Button>
+          
+          <LogoutButton />
         </div>
       </div>
     </header>
