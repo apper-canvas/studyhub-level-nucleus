@@ -6,13 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+colors: {
         primary: {
           50: '#eef2ff',
           100: '#e0e7ff',
           500: '#6366f1',
           600: '#4f46e5',
           700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
         secondary: {
           50: '#faf5ff',
@@ -20,6 +22,8 @@ export default {
           500: '#a855f7',
           600: '#8b5cf6',
           700: '#7c3aed',
+          800: '#6d28d9',
+          900: '#581c87',
         },
         accent: {
           50: '#fffbeb',
@@ -27,6 +31,8 @@ export default {
           500: '#f59e0b',
           600: '#d97706',
           700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
         },
         surface: '#f8fafc',
         success: '#10b981',
