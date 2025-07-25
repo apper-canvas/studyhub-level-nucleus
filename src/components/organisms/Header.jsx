@@ -42,22 +42,6 @@ const Header = ({ onMenuClick, title = "Dashboard" }) => {
         </div>
 
 <div className="flex items-center space-x-4">
-          <div className="hidden md:flex items-center space-x-3 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl px-4 py-2">
-            <ApperIcon name="Calendar" className="h-4 w-4 text-primary-600" />
-            <span className="text-sm font-medium text-gray-700">
-              {new Date().toLocaleDateString("en-US", { 
-                weekday: "long",
-                month: "long", 
-                day: "numeric" 
-              })}
-            </span>
-          </div>
-          
-          <Button variant="primary" size="sm" className="hidden sm:flex">
-            <ApperIcon name="Plus" className="h-4 w-4 mr-2" />
-            Quick Add
-          </Button>
-          
           <LogoutButton />
         </div>
       </div>
