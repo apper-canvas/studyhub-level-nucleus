@@ -252,18 +252,26 @@ return (
               </FormField>
 
               <FormField
-                label="Section"
+label="Section"
                 error={errors.section}
               >
-                <Input
+                <Select
                   name="section"
                   value={formData.section}
                   onChange={handleChange}
-                  placeholder="Enter section (e.g., A, B, C)"
                   className={errors.section ? "border-red-500" : ""}
-                />
+                >
+                  <option value="">Select section</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="G">G</option>
+                  <option value="H">H</option>
+                </Select>
               </FormField>
-
               <FormField
                 label="Course"
                 error={errors.courseId}
