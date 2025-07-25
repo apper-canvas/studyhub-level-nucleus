@@ -10,7 +10,7 @@ class StudentService {
   }
 
   async getAll() {
-    try {
+try {
       const params = {
         fields: [
           { field: { Name: "Name" } },
@@ -25,7 +25,18 @@ class StudentService {
           { field: { Name: "CreatedOn" } },
           { field: { Name: "CreatedBy" } },
           { field: { Name: "ModifiedOn" } },
-          { field: { Name: "ModifiedBy" } }
+          { field: { Name: "ModifiedBy" } },
+          { field: { Name: "date_of_birth_c" } },
+          { field: { Name: "gender_c" } },
+          { field: { Name: "section_c" } },
+          { field: { Name: "parent_guardian_name_c" } },
+          { field: { Name: "contact_number_c" } },
+          { field: { Name: "email_address_c" } },
+          { field: { Name: "address_c" } },
+          { field: { Name: "enrollment_date_c" } },
+          { field: { Name: "nationality_c" } },
+          { field: { Name: "category_c" } },
+          { field: { Name: "emergency_contact_details_c" } }
         ],
         orderBy: [
           {
@@ -58,7 +69,18 @@ class StudentService {
         courseName: student.course_c?.Name || '',
         grade: student.grade_c || null,
         tags: student.Tags || '',
-        owner: student.Owner || ''
+        owner: student.Owner || '',
+        dateOfBirth: student.date_of_birth_c || null,
+        gender: student.gender_c || '',
+        section: student.section_c || '',
+        parentGuardianName: student.parent_guardian_name_c || '',
+        contactNumber: student.contact_number_c || '',
+        emailAddress: student.email_address_c || '',
+        address: student.address_c || '',
+        enrollmentDate: student.enrollment_date_c || null,
+        nationality: student.nationality_c || '',
+        category: student.category_c || '',
+        emergencyContactDetails: student.emergency_contact_details_c || ''
       }));
     } catch (error) {
       if (error?.response?.data?.message) {
@@ -72,7 +94,7 @@ class StudentService {
   }
 
   async getById(id) {
-    try {
+try {
       const params = {
         fields: [
           { field: { Name: "Name" } },
@@ -83,7 +105,18 @@ class StudentService {
           },
           { field: { Name: "grade_c" } },
           { field: { Name: "Tags" } },
-          { field: { Name: "Owner" } }
+          { field: { Name: "Owner" } },
+          { field: { Name: "date_of_birth_c" } },
+          { field: { Name: "gender_c" } },
+          { field: { Name: "section_c" } },
+          { field: { Name: "parent_guardian_name_c" } },
+          { field: { Name: "contact_number_c" } },
+          { field: { Name: "email_address_c" } },
+          { field: { Name: "address_c" } },
+          { field: { Name: "enrollment_date_c" } },
+          { field: { Name: "nationality_c" } },
+          { field: { Name: "category_c" } },
+          { field: { Name: "emergency_contact_details_c" } }
         ]
       };
 
@@ -107,7 +140,18 @@ class StudentService {
         courseName: student.course_c?.Name || '',
         grade: student.grade_c || null,
         tags: student.Tags || '',
-        owner: student.Owner || ''
+        owner: student.Owner || '',
+        dateOfBirth: student.date_of_birth_c || null,
+        gender: student.gender_c || '',
+        section: student.section_c || '',
+        parentGuardianName: student.parent_guardian_name_c || '',
+        contactNumber: student.contact_number_c || '',
+        emailAddress: student.email_address_c || '',
+        address: student.address_c || '',
+        enrollmentDate: student.enrollment_date_c || null,
+        nationality: student.nationality_c || '',
+        category: student.category_c || '',
+        emergencyContactDetails: student.emergency_contact_details_c || ''
       };
     } catch (error) {
       if (error?.response?.data?.message) {
@@ -120,7 +164,7 @@ class StudentService {
     }
   }
 
-  async create(studentData) {
+async create(studentData) {
     try {
       const params = {
         records: [
@@ -128,9 +172,20 @@ class StudentService {
             Name: studentData.name || '',
             student_id_c: studentData.studentId || '',
             course_c: studentData.courseId ? parseInt(studentData.courseId) : null,
-            grade_c: studentData.grade ? parseFloat(studentData.grade) : null,
+            grade_c: studentData.grade ? parseInt(studentData.grade) : null,
             Tags: studentData.tags || '',
-            Owner: studentData.owner || null
+            Owner: studentData.owner || null,
+            date_of_birth_c: studentData.dateOfBirth || null,
+            gender_c: studentData.gender || '',
+            section_c: studentData.section || '',
+            parent_guardian_name_c: studentData.parentGuardianName || '',
+            contact_number_c: studentData.contactNumber || '',
+            email_address_c: studentData.emailAddress || '',
+            address_c: studentData.address || '',
+            enrollment_date_c: studentData.enrollmentDate || null,
+            nationality_c: studentData.nationality || '',
+            category_c: studentData.category || '',
+            emergency_contact_details_c: studentData.emergencyContactDetails || ''
           }
         ]
       };
@@ -167,7 +222,18 @@ class StudentService {
             courseName: createdStudent.course_c?.Name || '',
             grade: createdStudent.grade_c || null,
             tags: createdStudent.Tags || '',
-            owner: createdStudent.Owner || ''
+            owner: createdStudent.Owner || '',
+            dateOfBirth: createdStudent.date_of_birth_c || null,
+            gender: createdStudent.gender_c || '',
+            section: createdStudent.section_c || '',
+            parentGuardianName: createdStudent.parent_guardian_name_c || '',
+            contactNumber: createdStudent.contact_number_c || '',
+            emailAddress: createdStudent.email_address_c || '',
+            address: createdStudent.address_c || '',
+            enrollmentDate: createdStudent.enrollment_date_c || null,
+            nationality: createdStudent.nationality_c || '',
+            category: createdStudent.category_c || '',
+            emergencyContactDetails: createdStudent.emergency_contact_details_c || ''
           };
         }
       }
@@ -182,7 +248,7 @@ class StudentService {
     }
   }
 
-  async update(id, studentData) {
+async update(id, studentData) {
     try {
       const params = {
         records: [
@@ -191,9 +257,20 @@ class StudentService {
             Name: studentData.name || '',
             student_id_c: studentData.studentId || '',
             course_c: studentData.courseId ? parseInt(studentData.courseId) : null,
-            grade_c: studentData.grade ? parseFloat(studentData.grade) : null,
+            grade_c: studentData.grade ? parseInt(studentData.grade) : null,
             Tags: studentData.tags || '',
-            Owner: studentData.owner || null
+            Owner: studentData.owner || null,
+            date_of_birth_c: studentData.dateOfBirth || null,
+            gender_c: studentData.gender || '',
+            section_c: studentData.section || '',
+            parent_guardian_name_c: studentData.parentGuardianName || '',
+            contact_number_c: studentData.contactNumber || '',
+            email_address_c: studentData.emailAddress || '',
+            address_c: studentData.address || '',
+            enrollment_date_c: studentData.enrollmentDate || null,
+            nationality_c: studentData.nationality || '',
+            category_c: studentData.category || '',
+            emergency_contact_details_c: studentData.emergencyContactDetails || ''
           }
         ]
       };
@@ -230,7 +307,18 @@ class StudentService {
             courseName: updatedStudent.course_c?.Name || '',
             grade: updatedStudent.grade_c || null,
             tags: updatedStudent.Tags || '',
-            owner: updatedStudent.Owner || ''
+            owner: updatedStudent.Owner || '',
+            dateOfBirth: updatedStudent.date_of_birth_c || null,
+            gender: updatedStudent.gender_c || '',
+            section: updatedStudent.section_c || '',
+            parentGuardianName: updatedStudent.parent_guardian_name_c || '',
+            contactNumber: updatedStudent.contact_number_c || '',
+            emailAddress: updatedStudent.email_address_c || '',
+            address: updatedStudent.address_c || '',
+            enrollmentDate: updatedStudent.enrollment_date_c || null,
+            nationality: updatedStudent.nationality_c || '',
+            category: updatedStudent.category_c || '',
+            emergencyContactDetails: updatedStudent.emergency_contact_details_c || ''
           };
         }
       }
