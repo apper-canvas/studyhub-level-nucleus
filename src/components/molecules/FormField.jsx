@@ -10,9 +10,16 @@ const FormField = ({
   options = [], 
   className,
   required = false,
+  children,
   ...props 
 }) => {
   const renderInput = () => {
+    // If children are provided, render them (used by StudentForm)
+    if (children) {
+      return children;
+    }
+
+    // Fallback to internal rendering based on type (backward compatibility)
     if (type === "select") {
       return (
         <Select {...props} className={cn(error && "border-red-500 focus:border-red-500 focus:ring-red-500/20")}>
