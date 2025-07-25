@@ -1,0 +1,91 @@
+[
+  {
+    "Id": 1,
+    "name": "Introduction to Computer Science",
+    "code": "CS101",
+    "credits": 3,
+    "professor": "Dr. Sarah Johnson",
+    "color": "#6366f1",
+    "currentGrade": 87,
+    "progress": 65,
+    "nextAssignment": "2024-02-15T23:59:00Z",
+    "schedule": [
+      { "day": "monday", "time": "10:00" },
+      { "day": "wednesday", "time": "10:00" },
+      { "day": "friday", "time": "10:00" }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Calculus I",
+    "code": "MATH151",
+    "credits": 4,
+    "professor": "Prof. Michael Chen",
+    "color": "#8b5cf6",
+    "currentGrade": 92,
+    "progress": 70,
+    "nextAssignment": "2024-02-18T23:59:00Z",
+    "schedule": [
+      { "day": "tuesday", "time": "14:00" },
+      { "day": "thursday", "time": "14:00" }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "English Composition",
+    "code": "ENG101",
+    "credits": 3,
+    "professor": "Dr. Emily Rodriguez",
+    "color": "#f59e0b",
+    "currentGrade": 94,
+    "progress": 80,
+    "nextAssignment": "2024-02-20T23:59:00Z",
+    "schedule": [
+      { "day": "monday", "time": "13:00" },
+      { "day": "wednesday", "time": "13:00" }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "Physics I",
+    "code": "PHYS201",
+    "credits": 4,
+    "professor": "Dr. James Wilson",
+    "color": "#10b981",
+    "currentGrade": 78,
+    "progress": 55,
+    "nextAssignment": "2024-02-22T23:59:00Z",
+    "schedule": [
+      { "day": "tuesday", "time": "09:00" },
+      { "day": "thursday", "time": "09:00" }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "World History",
+    "code": "HIST105",
+    "credits": 3,
+    "professor": "Prof. Lisa Thompson",
+    "color": "#ef4444",
+    "currentGrade": 89,
+    "progress": 75,
+    "nextAssignment": null,
+    "schedule": [
+      { "day": "friday", "time": "15:00" }
+    ]
+  },
+  {
+    "Id": 6,
+    "name": "Chemistry Laboratory",
+    "code": "CHEM111L",
+    "credits": 1,
+    "professor": "Dr. Robert Kim",
+    "color": "#3b82f6",
+    "currentGrade": 96,
+    "progress": 85,
+    "nextAssignment": "2024-02-25T23:59:00Z",
+    "schedule": [
+      { "day": "wednesday", "time": "16:00" }
+    ]
+  }
+]

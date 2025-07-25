@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "title": "Programming Assignment 1: Hello World",
+    "courseId": 1,
+    "dueDate": "2024-02-15T23:59:00Z",
+    "priority": "medium",
+    "status": "pending",
+    "category": "assignment",
+    "weight": 10,
+    "grade": null,
+    "description": "Create a simple Hello World program in Python"
+  },
+  {
+    "Id": 2,
+    "title": "Calculus Midterm Exam",
+    "courseId": 2,
+    "dueDate": "2024-02-18T14:00:00Z",
+    "priority": "high",
+    "status": "pending",
+    "category": "exam",
+    "weight": 25,
+    "grade": null,
+    "description": "Comprehensive exam covering chapters 1-5"
+  },
+  {
+    "Id": 3,
+    "title": "Essay: Technology and Society",
+    "courseId": 3,
+    "dueDate": "2024-02-20T23:59:00Z",
+    "priority": "high",
+    "status": "pending",
+    "category": "assignment",
+    "weight": 20,
+    "grade": null,
+    "description": "Write a 1500-word essay on the impact of technology on modern society"
+  },
+  {
+    "Id": 4,
+    "title": "Physics Lab Report 2",
+    "courseId": 4,
+    "dueDate": "2024-02-22T23:59:00Z",
+    "priority": "medium",
+    "status": "pending",
+    "category": "assignment",
+    "weight": 15,
+    "grade": null,
+    "description": "Complete lab report on motion and forces experiment"
+  },
+  {
+    "Id": 5,
+    "title": "History Research Paper",
+    "courseId": 5,
+    "dueDate": "2024-02-28T23:59:00Z",
+    "priority": "high",
+    "status": "pending",
+    "category": "project",
+    "weight": 30,
+    "grade": null,
+    "description": "Research paper on World War I causes and consequences"
+  },
+  {
+    "Id": 6,
+    "title": "Chemistry Lab Practical",
+    "courseId": 6,
+    "dueDate": "2024-02-25T16:00:00Z",
+    "priority": "high",
+    "status": "pending",
+    "category": "exam",
+    "weight": 35,
+    "grade": null,
+    "description": "Practical examination on chemical reactions and analysis"
+  },
+  {
+    "Id": 7,
+    "title": "Weekly Quiz 3",
+    "courseId": 1,
+    "dueDate": "2024-02-10T23:59:00Z",
+    "priority": "low",
+    "status": "completed",
+    "category": "quiz",
+    "weight": 5,
+    "grade": 85,
+    "description": "Quiz on basic programming concepts"
+  },
+  {
+    "Id": 8,
+    "title": "Homework Set 4",
+    "courseId": 2,
+    "dueDate": "2024-02-12T23:59:00Z",
+    "priority": "medium",
+    "status": "completed",
+    "category": "homework",
+    "weight": 10,
+    "grade": 92,
+    "description": "Practice problems on derivatives and limits"
+  },
+  {
+    "Id": 9,
+    "title": "Reading Response 2",
+    "courseId": 3,
+    "dueDate": "2024-02-08T23:59:00Z",
+    "priority": "low",
+    "status": "completed",
+    "category": "assignment",
+    "weight": 10,
+    "grade": 88,
+    "description": "Response to assigned reading on academic writing"
+  },
+  {
+    "Id": 10,
+    "title": "Problem Set 3",
+    "courseId": 4,
+    "dueDate": "2024-02-14T23:59:00Z",
+    "priority": "medium",
+    "status": "completed",
+    "category": "homework",
+    "weight": 12,
+    "grade": 76,
+    "description": "Physics problems on kinematics and dynamics"
+  }
+]
