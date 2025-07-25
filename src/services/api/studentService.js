@@ -35,8 +35,7 @@ try {
           { field: { Name: "address_c" } },
           { field: { Name: "enrollment_date_c" } },
           { field: { Name: "nationality_c" } },
-          { field: { Name: "category_c" } },
-          { field: { Name: "emergency_contact_details_c" } }
+{ field: { Name: "category_c" } }
         ],
         orderBy: [
           {
@@ -79,8 +78,7 @@ try {
         address: student.address_c || '',
         enrollmentDate: student.enrollment_date_c || null,
         nationality: student.nationality_c || '',
-        category: student.category_c || '',
-        emergencyContactDetails: student.emergency_contact_details_c || ''
+category: student.category_c || ''
       }));
     } catch (error) {
       if (error?.response?.data?.message) {
@@ -115,8 +113,7 @@ try {
           { field: { Name: "address_c" } },
           { field: { Name: "enrollment_date_c" } },
           { field: { Name: "nationality_c" } },
-          { field: { Name: "category_c" } },
-          { field: { Name: "emergency_contact_details_c" } }
+{ field: { Name: "category_c" } }
         ]
       };
 
@@ -150,8 +147,7 @@ try {
         address: student.address_c || '',
         enrollmentDate: student.enrollment_date_c || null,
         nationality: student.nationality_c || '',
-        category: student.category_c || '',
-        emergencyContactDetails: student.emergency_contact_details_c || ''
+category: student.category_c || ''
       };
     } catch (error) {
       if (error?.response?.data?.message) {
@@ -184,8 +180,7 @@ async create(studentData) {
             address_c: studentData.address || '',
             enrollment_date_c: studentData.enrollmentDate || null,
             nationality_c: studentData.nationality || '',
-            category_c: studentData.category || '',
-            emergency_contact_details_c: studentData.emergencyContactDetails || ''
+category_c: studentData.category || ''
           }
         ]
       };
@@ -232,8 +227,7 @@ async create(studentData) {
             address: createdStudent.address_c || '',
             enrollmentDate: createdStudent.enrollment_date_c || null,
             nationality: createdStudent.nationality_c || '',
-            category: createdStudent.category_c || '',
-            emergencyContactDetails: createdStudent.emergency_contact_details_c || ''
+category: createdStudent.category_c || ''
           };
         }
       }
@@ -269,8 +263,7 @@ async update(id, studentData) {
             address_c: studentData.address || '',
             enrollment_date_c: studentData.enrollmentDate || null,
             nationality_c: studentData.nationality || '',
-            category_c: studentData.category || '',
-            emergency_contact_details_c: studentData.emergencyContactDetails || ''
+category_c: studentData.category || ''
           }
         ]
       };
@@ -317,8 +310,7 @@ async update(id, studentData) {
             address: updatedStudent.address_c || '',
             enrollmentDate: updatedStudent.enrollment_date_c || null,
             nationality: updatedStudent.nationality_c || '',
-            category: updatedStudent.category_c || '',
-            emergencyContactDetails: updatedStudent.emergency_contact_details_c || ''
+category: updatedStudent.category_c || ''
           };
         }
       }

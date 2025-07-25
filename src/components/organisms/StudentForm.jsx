@@ -22,8 +22,7 @@ const [formData, setFormData] = useState({
     address: "",
     enrollmentDate: "",
     nationality: "",
-    category: "",
-    emergencyContactDetails: ""
+category: ""
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,8 +44,7 @@ const [formData, setFormData] = useState({
         address: student.address || "",
         enrollmentDate: student.enrollmentDate ? new Date(student.enrollmentDate).toISOString().split('T')[0] : "",
         nationality: student.nationality || "",
-        category: student.category || "",
-        emergencyContactDetails: student.emergencyContactDetails || ""
+category: student.category || ""
       });
     }
   }, [student]);
@@ -396,19 +394,6 @@ label="Section"
               Additional Information
             </h3>
             <div className="grid grid-cols-1 gap-6">
-              <FormField
-                label="Emergency Contact Details"
-                error={errors.emergencyContactDetails}
-              >
-                <textarea
-                  name="emergencyContactDetails"
-                  value={formData.emergencyContactDetails}
-                  onChange={handleChange}
-                  placeholder="Enter emergency contact name, relationship, and phone number"
-                  rows={3}
-                  className={`flex w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 disabled:cursor-not-allowed disabled:opacity-50 resize-none ${errors.emergencyContactDetails ? "border-red-500" : ""}`}
-                />
-              </FormField>
 
               <FormField
                 label="Tags"
