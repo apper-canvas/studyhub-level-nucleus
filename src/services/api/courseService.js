@@ -197,8 +197,23 @@ class CourseService {
     }
   }
 
+constructor() {
+    // Initialize ApperClient with Project ID and Public Key
+    const { ApperClient } = window.ApperSDK;
+    this.apperClient = new ApperClient({
+      apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+      apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+    });
+    this.tableName = 'course_c';
+  }
+
   async update(id, courseData) {
     try {
+      // Ensure ApperClient is initialized
+      if (!this.apperClient) {
+        throw new Error('ApperClient not initialized. Please check your configuration.');
+      }
+
       const params = {
         records: [
           {
@@ -257,7 +272,11 @@ class CourseService {
         }
       }
     } catch (error) {
-      if (error?.response?.data?.message) {
+      // Enhanced error handling for network issues
+      if (error.message === 'Failed to fetch' || error.message.includes('Network Error')) {
+        console.error("Network connectivity issue:", error.message);
+        throw new Error('Unable to connect to the server. Please check your internet connection and try again.');
+      } else if (error?.response?.data?.message) {
         console.error("Error updating course:", error.response.data.message);
         throw new Error(error.response.data.message);
       } else {
