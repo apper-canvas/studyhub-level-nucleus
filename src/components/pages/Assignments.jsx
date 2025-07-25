@@ -140,7 +140,7 @@ const Assignments = () => {
     );
   }
 
-  return (
+return (
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -150,10 +150,20 @@ const Assignments = () => {
           </p>
         </div>
         
-        <Button onClick={handleAddAssignment} variant="primary" size="lg">
-          <ApperIcon name="Plus" className="h-5 w-5 mr-2" />
-          Add Assignment
-        </Button>
+        <div className="flex items-center space-x-4">
+          <Button 
+            onClick={() => window.location.href = '/grade-predictor'} 
+            variant="outline"
+            size="lg"
+          >
+            <ApperIcon name="TrendingUp" className="h-5 w-5 mr-2" />
+            Grade Predictor
+          </Button>
+          <Button onClick={handleAddAssignment} variant="primary" size="lg">
+            <ApperIcon name="Plus" className="h-5 w-5 mr-2" />
+            Add Assignment
+          </Button>
+        </div>
       </div>
 
       <AssignmentTable

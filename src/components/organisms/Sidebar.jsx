@@ -30,6 +30,7 @@ const navigationItems = [
     { name: "Assignments", href: "/assignments", icon: "FileText" },
     { name: "Students", href: "/students", icon: "Users" },
     { name: "Grades", href: "/grades", icon: "BarChart3" },
+    { name: "Grade Predictor", href: "/grade-predictor", icon: "TrendingUp" },
     { name: "Calendar", href: "/calendar", icon: "Calendar" },
   ];
 

@@ -1,22 +1,24 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { Provider, useDispatch } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import React, { createContext, useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { Provider, useDispatch } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { ToastContainer } from "react-toastify";
-import Layout from "@/components/organisms/Layout";
-import Dashboard from "@/components/pages/Dashboard";
-import Courses from "@/components/pages/Courses";
-import Assignments from "@/components/pages/Assignments";
-import Students from "@/components/pages/Students";
-import Grades from "@/components/pages/Grades";
+import GradePrediction from "@/components/pages/GradePrediction";
+import "@/index.css";
+import userReducer, { clearUser, setUser } from "@/store/userSlice";
 import CalendarPage from "@/components/pages/CalendarPage";
 import Login from "@/components/pages/Login";
-import Signup from "@/components/pages/Signup";
-import Callback from "@/components/pages/Callback";
-import ErrorPage from "@/components/pages/ErrorPage";
-import ResetPassword from "@/components/pages/ResetPassword";
 import PromptPassword from "@/components/pages/PromptPassword";
-import userReducer, { setUser, clearUser } from '@/store/userSlice';
+import ErrorPage from "@/components/pages/ErrorPage";
+import Dashboard from "@/components/pages/Dashboard";
+import Signup from "@/components/pages/Signup";
+import Assignments from "@/components/pages/Assignments";
+import Students from "@/components/pages/Students";
+import Callback from "@/components/pages/Callback";
+import Courses from "@/components/pages/Courses";
+import Grades from "@/components/pages/Grades";
+import ResetPassword from "@/components/pages/ResetPassword";
+import Layout from "@/components/organisms/Layout";
 
 // Create Redux store
 const store = configureStore({
@@ -143,14 +145,14 @@ function AppContent() {
           <Route path="/reset-password/:appId/:fields" element={<ResetPassword />} />
 <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="courses" element={<Courses />} />
+            <Route path="grades" element={<Grades />} />
+            <Route path="grade-predictor" element={<GradePrediction />} />
+            <Route path="calendar" element={<CalendarPage />} />
             <Route path="assignments" element={<Assignments />} />
             <Route path="students" element={<Students />} />
-            <Route path="grades" element={<Grades />} />
-            <Route path="calendar" element={<CalendarPage />} />
+            <Route path="courses" element={<Courses />} />
           </Route>
         </Routes>
-        
         <ToastContainer
           position="top-right"
           autoClose={3000}
