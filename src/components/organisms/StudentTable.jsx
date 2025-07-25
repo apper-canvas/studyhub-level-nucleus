@@ -11,11 +11,27 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
   const [filter, setFilter] = useState({ course: "", search: "" });
   const [sortBy, setSortBy] = useState({ field: "name", direction: "asc" });
 
-  const filteredStudents = students
+const filteredStudents = students
     .filter(student => {
       if (filter.course && student.courseId !== parseInt(filter.course)) return false;
-      if (filter.search && !student.name.toLowerCase().includes(filter.search.toLowerCase()) && 
-          !student.studentId.toLowerCase().includes(filter.search.toLowerCase())) return false;
+      if (filter.search) {
+        const searchTerm = filter.search.toLowerCase();
+        const searchFields = [
+          student.name,
+          student.studentId,
+          student.parentGuardianName,
+          student.contactNumber,
+          student.emailAddress,
+          student.section,
+          student.gender
+        ];
+        
+        const matchFound = searchFields.some(field => 
+          field && field.toString().toLowerCase().includes(searchTerm)
+        );
+        
+        if (!matchFound) return false;
+      }
       return true;
     })
     .sort((a, b) => {
@@ -114,12 +130,12 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
         </div>
       </CardHeader>
 
-      <CardContent className="p-0">
+<CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[1200px]">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="px-6 py-3 text-left">
+                <th className="px-4 py-3 text-left">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -133,7 +149,7 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                     />
                   </Button>
                 </th>
-                <th className="px-6 py-3 text-left">
+                <th className="px-3 py-3 text-left">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -147,8 +163,13 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                     />
                   </Button>
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-gray-900">Course</th>
-                <th className="px-6 py-3 text-left">
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Course</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Date of Birth</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Gender</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Section</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Parent/Guardian</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-900">Contact</th>
+                <th className="px-3 py-3 text-left">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -162,21 +183,36 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                     />
                   </Button>
                 </th>
-                <th className="px-6 py-3 text-left text-sm font-medium text-gray-900">Actions</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+<tbody className="bg-white divide-y divide-gray-200">
               {filteredStudents.map((student) => {
                 const course = courses.find(c => c.Id === student.courseId);
                 
+                // Format date of birth for display
+                const formatDate = (dateString) => {
+                  if (!dateString) return 'N/A';
+                  try {
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'short', 
+                      day: 'numeric' 
+                    });
+                  } catch {
+                    return 'Invalid Date';
+                  }
+                };
+                
                 return (
                   <tr key={student.Id} className="hover:bg-gray-50 transition-colors duration-150">
-                    <td className="px-6 py-4">
+                    <td className="px-4 py-4">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
                           {student.name.charAt(0).toUpperCase()}
                         </div>
-                        <div className="ml-4">
+                        <div className="ml-3">
                           <div className="text-sm font-medium text-gray-900">
                             {student.name}
                           </div>
@@ -185,15 +221,20 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                               {student.tags}
                             </div>
                           )}
+                          {student.nationality && (
+                            <div className="text-xs text-gray-500">
+                              {student.nationality}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-3 py-4">
                       <div className="text-sm text-gray-900 font-mono">
                         {student.studentId || 'N/A'}
                       </div>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-3 py-4">
                       {course ? (
                         <div className="flex items-center">
                           <div 
@@ -213,7 +254,42 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                         <span className="text-sm text-gray-500">No course assigned</span>
                       )}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-3 py-4">
+                      <div className="text-sm text-gray-900">
+                        {formatDate(student.dateOfBirth)}
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="text-sm text-gray-900">
+                        {student.gender || 'N/A'}
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="text-sm text-gray-900">
+                        {student.section || 'N/A'}
+                      </div>
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="text-sm text-gray-900">
+                        {student.parentGuardianName || 'N/A'}
+                      </div>
+                      {student.category && (
+                        <div className="text-xs text-gray-500 mt-1">
+                          Category: {student.category}
+                        </div>
+                      )}
+                    </td>
+                    <td className="px-3 py-4">
+                      <div className="text-sm text-gray-900">
+                        {student.contactNumber || 'N/A'}
+                      </div>
+                      {student.emailAddress && (
+                        <div className="text-xs text-gray-500 mt-1">
+                          {student.emailAddress}
+                        </div>
+                      )}
+                    </td>
+                    <td className="px-3 py-4">
                       {student.grade !== null ? (
                         <div className="flex items-center space-x-2">
                           <Badge color={getGradeColor(student.grade)}>
@@ -227,7 +303,7 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
                         <span className="text-sm text-gray-500">No grade</span>
                       )}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 py-4">
                       <div className="flex items-center space-x-3">
                         <Button
                           onClick={() => onEdit(student)}
@@ -255,11 +331,11 @@ const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
           </table>
         </div>
         
-        {filteredStudents.length === 0 && (
+{filteredStudents.length === 0 && (
           <div className="p-12 text-center">
             <ApperIcon name="Search" className="h-12 w-12 text-gray-300 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">No students found</h3>
-            <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+            <p className="text-gray-600">Try adjusting your search or filter criteria. You can search by name, ID, parent name, contact, email, section, or gender.</p>
           </div>
         )}
       </CardContent>
