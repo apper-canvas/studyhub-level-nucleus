@@ -7,7 +7,7 @@ import Empty from "@/components/ui/Empty";
 import ApperIcon from "@/components/ApperIcon";
 import Badge from "@/components/atoms/Badge";
 
-const StudentTable = ({ students, courses, onEdit, onDelete, onAdd }) => {
+const StudentTable = ({ students, courses, onEdit, onDelete, onAdd, onViewDetails }) => {
   const [filter, setFilter] = useState({ course: "", search: "" });
   const [sortBy, setSortBy] = useState({ field: "name", direction: "asc" });
 
@@ -206,16 +206,22 @@ const filteredStudents = students
                 };
                 
                 return (
-                  <tr key={student.Id} className="hover:bg-gray-50 transition-colors duration-150">
+<tr key={student.Id} className="hover:bg-gray-50 transition-colors duration-150">
                     <td className="px-4 py-4">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
                           {student.name.charAt(0).toUpperCase()}
                         </div>
                         <div className="ml-3">
-                          <div className="text-sm font-medium text-gray-900">
-                            {student.name}
-                          </div>
+                          <Button
+                            onClick={() => onViewDetails && onViewDetails(student)}
+                            variant="ghost"
+                            className="text-left p-0 h-auto hover:bg-transparent"
+                          >
+                            <div className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors cursor-pointer">
+                              {student.name}
+                            </div>
+                          </Button>
                           {student.tags && (
                             <div className="text-xs text-gray-500 mt-1">
                               {student.tags}
