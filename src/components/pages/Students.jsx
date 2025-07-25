@@ -118,7 +118,7 @@ const Students = () => {
     );
   }
 
-  return (
+return (
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -128,10 +128,25 @@ const Students = () => {
           </p>
         </div>
         
-        <Button onClick={handleAddStudent} variant="primary" size="lg">
-          <ApperIcon name="Plus" className="h-5 w-5 mr-2" />
-          Add Student
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button 
+            onClick={loadData} 
+            variant="outline" 
+            size="lg"
+            disabled={loading}
+          >
+            <ApperIcon 
+              name={loading ? "Loader2" : "RotateCcw"} 
+              className={`h-5 w-5 mr-2 ${loading ? "animate-spin" : ""}`} 
+            />
+            Refresh
+          </Button>
+          
+          <Button onClick={handleAddStudent} variant="primary" size="lg">
+            <ApperIcon name="Plus" className="h-5 w-5 mr-2" />
+            Add Student
+          </Button>
+        </div>
       </div>
 
       <StudentTable
