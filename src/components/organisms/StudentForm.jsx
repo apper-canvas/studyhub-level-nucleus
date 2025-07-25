@@ -48,7 +48,7 @@ const StudentForm = ({ student, courses, onSave, onCancel }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -61,7 +61,7 @@ const StudentForm = ({ student, courses, onSave, onCancel }) => {
       const studentData = {
         ...formData,
         courseId: formData.courseId || null,
-        grade: formData.grade ? parseFloat(formData.grade) : null
+        grade: formData.grade ? parseInt(formData.grade) : null
       };
       
       await onSave(studentData);
@@ -150,7 +150,7 @@ const StudentForm = ({ student, courses, onSave, onCancel }) => {
             </FormField>
 
             <FormField
-              label="Grade (%)"
+label="Grade (%)"
               error={errors.grade}
             >
               <Input
@@ -158,7 +158,7 @@ const StudentForm = ({ student, courses, onSave, onCancel }) => {
                 type="number"
                 min="0"
                 max="100"
-                step="0.1"
+                step="1"
                 value={formData.grade}
                 onChange={handleChange}
                 placeholder="Enter grade (0-100)"
