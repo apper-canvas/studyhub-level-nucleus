@@ -194,19 +194,8 @@ class CourseService {
         console.error("Error creating course:", error.message);
         throw error;
       }
-    }
+}
   }
-
-constructor() {
-    // Initialize ApperClient with Project ID and Public Key
-    const { ApperClient } = window.ApperSDK;
-    this.apperClient = new ApperClient({
-      apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
-      apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
-    });
-    this.tableName = 'course_c';
-  }
-
   async update(id, courseData) {
     try {
       // Ensure ApperClient is initialized
