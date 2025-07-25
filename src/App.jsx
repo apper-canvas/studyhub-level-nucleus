@@ -7,6 +7,7 @@ import Layout from "@/components/organisms/Layout";
 import Dashboard from "@/components/pages/Dashboard";
 import Courses from "@/components/pages/Courses";
 import Assignments from "@/components/pages/Assignments";
+import Students from "@/components/pages/Students";
 import Grades from "@/components/pages/Grades";
 import CalendarPage from "@/components/pages/CalendarPage";
 import Login from "@/components/pages/Login";
@@ -140,10 +141,11 @@ function AppContent() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/prompt-password/:appId/:emailAddress/:provider" element={<PromptPassword />} />
           <Route path="/reset-password/:appId/:fields" element={<ResetPassword />} />
-          <Route path="/" element={<Layout />}>
+<Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="courses" element={<Courses />} />
             <Route path="assignments" element={<Assignments />} />
+            <Route path="students" element={<Students />} />
             <Route path="grades" element={<Grades />} />
             <Route path="calendar" element={<CalendarPage />} />
           </Route>

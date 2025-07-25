@@ -24,10 +24,11 @@ const LogoutButton = () => {
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
 
-  const navigationItems = [
+const navigationItems = [
     { name: "Dashboard", href: "/", icon: "Home" },
     { name: "Courses", href: "/courses", icon: "BookOpen" },
     { name: "Assignments", href: "/assignments", icon: "FileText" },
+    { name: "Students", href: "/students", icon: "Users" },
     { name: "Grades", href: "/grades", icon: "BarChart3" },
     { name: "Calendar", href: "/calendar", icon: "Calendar" },
   ];
