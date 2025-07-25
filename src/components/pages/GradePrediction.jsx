@@ -87,12 +87,9 @@ const GradePrediction = () => {
     }
   };
 
-  const loadScenarios = async (courseId) => {
+const loadScenarios = async (courseId) => {
     try {
-      const scenariosData = await whatIfScenarioService.getAll();
-      const courseScenarios = scenariosData.filter(
-        scenario => scenario.courseId === parseInt(courseId)
-      );
+      const courseScenarios = await whatIfScenarioService.getByCourse(courseId);
       setScenarios(courseScenarios);
     } catch (err) {
       console.error('Failed to load scenarios:', err.message);
@@ -178,7 +175,7 @@ const GradePrediction = () => {
     }
   };
 
-  const handleLoadScenario = async (scenario) => {
+const handleLoadScenario = async (scenario) => {
     try {
       setLoading(true);
       
@@ -190,7 +187,7 @@ const GradePrediction = () => {
       );
 
       // Update what-if grades based on loaded scenario
-      const loadedGrades = { ...whatIfGrades };
+      const loadedGrades = {};
       relatedScenarios.forEach(s => {
         if (s.assignmentId) {
           loadedGrades[s.assignmentId] = s.potentialGrade;
